@@ -1,7 +1,7 @@
 package com.example.movieworkshoptemplate.models;
 
 //Movie POJO
-public class Movie {
+public class Movie implements Comparable{
 
     int year;
     int length;
@@ -18,7 +18,11 @@ public class Movie {
         this.popularity = popularity;
         this.awards = awards;
     }
-/*
+
+    public Movie() {
+
+    }
+
     public int getYear() {
         return year;
     }
@@ -67,8 +71,6 @@ public class Movie {
         this.awards = awards;
     }
 
- */
-
     @Override
     public String toString() {
         return "Movie{" +
@@ -79,5 +81,13 @@ public class Movie {
                 ", popularity='" + popularity + '\'' +
                 ", awards='" + awards + '\'' +
                 '}';
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        Movie movie = (Movie) o;
+        if (this.popularity < movie.getPopularity()) return 1;
+        else if (this.popularity == movie.getPopularity()) return 0;
+        else return -1;
     }
 }
