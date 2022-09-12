@@ -41,4 +41,8 @@ public class MovieController {
         return topTen;
     }
 
+    @GetMapping("/howManyWonAnAward")
+    public ArrayList<Movie> howManyWonAnAward() {
+        return new MovieService().moviesWithAwards();
+    }
 }

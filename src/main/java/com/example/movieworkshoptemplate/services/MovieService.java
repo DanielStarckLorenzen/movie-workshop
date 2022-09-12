@@ -30,4 +30,14 @@ public class MovieService {
         Collections.sort(moviesFromList);
         return moviesFromList;
     }
+
+    public ArrayList<Movie> moviesWithAwards() {
+        ArrayList<Movie> moviesAward = new ArrayList<>();
+        ArrayList<Movie> allMovies = new MovieDataRepository().moviesInFile();
+        for (int i = 0; i < allMovies.size(); i++) {
+            if (allMovies.get(i).getAwards().equals("Yes"))
+                moviesAward.add(allMovies.get(i));
+        }
+        return moviesAward;
+    }
 }
